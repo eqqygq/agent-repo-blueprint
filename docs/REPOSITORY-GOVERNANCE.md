@@ -1,6 +1,8 @@
 # 仓库治理策略
 
 > 本文件记录**预期策略**，便于审计与重建；真正的强制机制在 GitHub 设置侧（Repository Rulesets / 组织策略），文档本身不具强制力。
+>
+> ⚠️ 费用提示：下列 rulesets / CODEOWNERS / 必需评审与状态检查、以及私有仓库的 Secret Protection / Code Security，在 **GitHub Free 的私有仓库**下属于 Team 套餐或付费附加项；公开仓库则免费。零成本路线见 [COSTS.md](COSTS.md)。
 
 ## 分支与合并
 

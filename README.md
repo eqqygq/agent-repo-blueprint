@@ -30,6 +30,7 @@
 | 分支保护、权限、发布策略 | [docs/REPOSITORY-GOVERNANCE.md](docs/REPOSITORY-GOVERNANCE.md) |
 | 安全漏洞往哪报 | [SECURITY.md](SECURITY.md) |
 | 版本之间变了什么 | [CHANGELOG.md](CHANGELOG.md) |
+| 哪些免费、哪些要钱 | [docs/COSTS.md](docs/COSTS.md) |
 
 > **给 AI 助手**：动手前先读 [AGENTS.md](AGENTS.md)；遇到任何工具或插件的用法问题，先查 `docs/INTEGRATIONS.md`，查不到就补充进去再继续。
 

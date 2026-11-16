@@ -14,7 +14,7 @@
 
 ## 路径 A（首选）：连官方 GitHub MCP Server
 
-GitHub 官方提供托管远程 MCP，端点 `https://api.githubcopilot.com/mcp/`，支持 OAuth 或 PAT。以下是官方 README 给出的 VS Code 配置（原文）：
+GitHub 官方提供托管远程 MCP，端点 `https://api.githubcopilot.com/mcp/`，支持 OAuth 或 PAT。**该服务对所有 GitHub 用户免费（任意套餐），PAT 认证不需要 Copilot 订阅**；只有 Copilot coding agent 等本身付费的工具才需要付费权益。费用边界见 [COSTS.md](COSTS.md)。以下是官方 README 给出的 VS Code 配置（原文）：
 
 OAuth 方式：
 
