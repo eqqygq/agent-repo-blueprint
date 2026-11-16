@@ -8,7 +8,7 @@
 | 工具 / 插件 | 用途 | 状态 |
 | --- | --- | --- |
 | **WorkBuddy 资料库 / 文献库** | **内部知识检索、文档沉淀、跨设备共享** | ⭐ **日常最常用**，见下节 |
-| GitHub CLI (`gh`) | 命令行建仓、查 Issue/PR、发版 | ✅ 已装 2.104.0，⚠️ 未登录 |
+| GitHub CLI (`gh`) | 命令行建仓、查 Issue/PR、发版 | ✅ 已装 2.104.0，已登录 `eqqygq` |
 | GitHub MCP Server | 让智能体直接读写 GitHub | ❌ 未配置，需 PAT |
 | WorkBuddy GitHub 连接器 | 在 WorkBuddy 里用自然语言管仓库 | ❌ 未连接 |
 | Ollama（本地大模型） | 离线推理兜底 | ✅ 0.40.16 + `qwen3:4b`，11434 服务可用，推理已验证 |

@@ -1,15 +1,15 @@
-# GitHub 仓库骨架与智能体知识源（名称待定）
+# GitHub 仓库骨架与智能体知识源
 
 > 按 GitHub 官方最佳实践搭建的仓库骨架，同时作为 AI 智能体的知识源：工具 / 插件用法、治理策略、费用边界、智能体接入方案和工作看板都沉淀在仓库里，智能体遇事先查仓库，不依赖会话记忆。
 
 ## 当前状态
 
 - [x] 本地骨架已按《GitHub 仓库建设全套方案》生成
-- [ ] 尚未推送到 GitHub（本机 GitHub CLI 未登录 / 无 PAT）
-- [ ] 智能体接入（GitHub MCP Server）待配置
-- [ ] 本地大模型兜底待安装
+- [x] 已推送到 GitHub：`eqqygq/agent-repo-blueprint`
+- [x] GitHub CLI 已登录（`eqqygq`）；GitHub MCP Server 已配置，需在连接器管理页点「信任」
+- [x] 本地大模型兜底已就绪：Ollama + `qwen3:4b`（模型在 `D:\Ollama\models`）
 
-骨架位置：`repo/`。方案全文见工作区根目录的 `GitHub仓库建设全套方案.md`。
+本地工作副本：`repo/`。方案全文见工作区根目录的 `GitHub仓库建设全套方案.md`。
 
 ## 快速开始
 

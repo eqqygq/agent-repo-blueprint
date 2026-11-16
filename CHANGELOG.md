@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+### Changed
+
+- GitHub 授权打通：`gh` 已登录 `eqqygq`，MCP 配置写入 `~/.workbuddy/mcp.json`（待连接器信任）
+- Ollama 模型目录迁至 `D:\Ollama\models`（`OLLAMA_MODELS` 用户变量），迁移后推理复验通过
+- 占位符替换为真实账号：`eqqygq/agent-repo-blueprint`、`@eqqygq`
+
 ### Added
 
 - 仓库基础骨架：README / LICENSE / CONTRIBUTING / CODE_OF_CONDUCT / SECURITY / CHANGELOG / AGENTS
@@ -28,4 +34,4 @@
 
 ### Added
 
-- 初始骨架（本地，尚未推送 GitHub）
+- 初始骨架（已推送 GitHub：`eqqygq/agent-repo-blueprint`）

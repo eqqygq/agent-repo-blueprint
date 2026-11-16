@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
   - name: 安全漏洞报告（请勿公开提交）
-    url: https://github.com/your-org/your-repo/security/advisories/new
+    url: https://github.com/eqqygq/agent-repo-blueprint/security/advisories/new
     about: 安全漏洞一律走私密报告渠道
   - name: 使用咨询与讨论
-    url: https://github.com/your-org/your-repo/discussions
+    url: https://github.com/eqqygq/agent-repo-blueprint/discussions
     about: 问答、建议与方案讨论请到 Discussions

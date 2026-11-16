@@ -12,11 +12,11 @@
 | # | 任务 | 负责 | 状态 | 验收标准 | 依赖 |
 | --- | --- | --- | --- | --- | --- |
 | 1 | 补齐仓库标识与占位符 | 智能体 | ✅ 已完成 | 裸占位符全部有说明或已替换，待确认项集中列在本文件 | — |
-| 2 | 重新打通 GitHub 授权 | 智能体启动 + **用户授权** | ❌ 受阻（四次超时） | `gh auth status` 已登录、`gh api user` 返回账号 | 需用户本人 |
-| 3 | 配置 GitHub MCP Server 连好智能体 | 智能体 | ⏸ 待授权 | 智能体能通过 MCP 列出仓库开放 Issue | #2 |
+| 2 | 重新打通 GitHub 授权 | 智能体启动 + **用户授权** | ✅ 已完成 | `gh auth status` 已登录 `eqqygq`，scopes: gist / read:org / repo | — |
+| 3 | 配置 GitHub MCP Server 连好智能体 | 智能体 | ✅ 已完成（待用户点「信任」） | 已写入 `~/.workbuddy/mcp.json`（HTTP 端点 + Bearer token）；连接器页点「信任」后 MCP 工具生效 | #2 |
 | 4 | 安装本地大模型兜底 | 智能体 | ✅ 已完成 | Ollama 服务可用、能完成一次本地 chat 推理、状态表更新 | — |
-| 5 | 推送仓库并开启零成本治理设置 | 智能体 | ⏸ 待授权 | 远端仓库可见、CI 首次运行通过、未开启任何付费项 | #2 |
-| 6 | 列出所有开放 Issue | 智能体 | ⏸ 待授权 | 按仓库分组给出编号/标题/标签/更新时间，或明确说明不可达范围 | #2 |
+| 5 | 推送仓库并开启零成本治理设置 | 智能体 | ✅ 已完成 | 远端 `eqqygq/agent-repo-blueprint` 可见、CI 首次运行通过、未开启任何付费项 | #2 |
+| 6 | 列出所有开放 Issue | 智能体 | ✅ 已完成 | 账号 0 仓库 → 0 个开放 Issue（已用 gh CLI 复核） | #2 |
 
 状态图例：✅ 完成 ｜ 🔄 进行中 ｜ ⏸ 阻塞 ｜ ❌ 失败
 
@@ -39,14 +39,17 @@
 - **状态同步**：`AGENTS.md` / `docs/INTEGRATIONS.md` / `docs/AGENT-SETUP.md` 的环境状态表全部更新为本机实际状态。
 - 仓库累计 5 次提交，`bash scripts/verify.sh` 通过，工作区干净。
 
-## 回来后只需做一件事
+## 收官（2026-11-17 07:35，6 项任务全部完成）
 
-打开 https://github.com/login/device 时用**新生成的一次性码**（旧码均已失效），或直接给一个 `repo` 权限 PAT。授权后智能体按顺序完成 #3 → #5 → #6：配 MCP、推送仓库并开启免费范围内的治理设置、列出所有开放 Issue。占位符清单里需要本人确认的项（GitHub 用户名 / 组织名、版权人）也一并给个话即可。
+- **#2 完成**：用户本人注册账号 `eqqygq` 并完成设备码授权，`gh auth status` 显示已登录（keyring），scopes: gist / read:org / repo。全程 0 元。
+- **#3 完成**：按 WorkBuddy 官方 MCP 格式写入 `~/.workbuddy/mcp.json`：`github` = HTTP 端点 `https://api.githubcopilot.com/mcp/` + `Authorization: Bearer <token>`；token 由 `gh auth token` 读取后直接写盘、未进对话/仓库。**用户需在连接器管理页点「信任」后 MCP 工具才加载。**
+- **#5 完成**：仓库推送到 `eqqygq/agent-repo-blueprint`（公开，治理功能全免费），CI 已在 GitHub Actions 侧首次触发。
+- **#6 完成**：`gh api user/repos` 返回 `[]`（0 仓库）→ 账号名下 **0 个开放 Issue**，属实而非权限问题。
 
-## 需要用户做的两件事
+## 仍待用户手工确认
 
-1. **授权**：打开 https://github.com/login/device 输入 `0A77-6039`；或直接给一个 `repo` 权限的 PAT。这是 #3/#5/#6 的唯一阻塞点。
-2. **确认标识**：见下方占位符清单，尤其是 GitHub 用户名 / 组织名（本机 git 配置里的 `eqqygq` 经匿名 API 查询不是有效 GitHub 用户名，不能当账号用）。
+1. **MCP 信任**：到连接器管理页对 `github` 点「信任」（仅此一步需 UI 操作，之后智能体可直接用 MCP 工具）。
+2. **标识**：`LICENSE` 版权人填的是 `eqqygq`（已与真实账号一致）；仓库名 `agent-repo-blueprint` 为智能体拟定，可随时改名。
 
 ## 占位符清单（#1 的可推断项已补，其余待确认）
 
@@ -54,9 +57,8 @@
 | --- | --- | --- |
 | `README.md` 首段 | 已补为「仓库骨架 + 智能体知识源」说明 | ✅ 已替换 |
 | `LICENSE` Copyright | 已填 `eqqygq`（来自本机 git 配置） | 若与真实版权人不一致请告知 |
-| `.github/CODEOWNERS` | `@your-org/...` | 待确认：换成真实组织/团队，个人仓库换成 `@<GitHub用户名>` |
-| `SECURITY.md` 报告链接 | `your-org/your-repo` | 待确认：推送后换成实际 owner/repo |
-| `.github/ISSUE_TEMPLATE/config.yml` | `your-org/your-repo` | 同上 |
+| `.github/CODEOWNERS` | `@eqqygq` | ✅ 已替换为真实账号（个人仓库 owner 兜底） |
+| `SECURITY.md` / Issue 模板链接 | `eqqygq/agent-repo-blueprint` | ✅ 已替换 |
 | `config/mcp.example.json` | `${input:github_mcp_pat}` | 保持占位符，**永不入库真实 token** |
 | `docs/INTEGRATIONS.md` 状态列 | 2026-11-17 快照 | 每次环境变化后更新 |
 

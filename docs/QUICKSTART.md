@@ -11,7 +11,7 @@ bash scripts/verify.sh
 
 ## 2. 补齐标识
 
-按 [WORK-PLAN.md](WORK-PLAN.md) 的「占位符清单」替换 `your-org/your-repo` 与 `@your-org/...`。GitHub 用户名 / 组织名必须确认，本机 git 配置里的名字不是有效 GitHub 账号。
+已按真实账号填好：`owner=eqqygq`、`repo=agent-repo-blueprint`、CODEOWNERS 为 `@eqqygq`。如需改组织名/仓库名，全局替换后同步改 `README.md`、`.github/CODEOWNERS`、`.github/ISSUE_TEMPLATE/config.yml`。
 
 ## 3. 让智能体连上仓库（需 GitHub 授权）
 

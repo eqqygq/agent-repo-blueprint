@@ -5,10 +5,10 @@
 **请不要用公开 Issue 报告安全漏洞。** 请走 GitHub 的私密漏洞报告：
 
 ```
-https://github.com/<owner>/<repo>/security/advisories/new
+https://github.com/eqqygq/agent-repo-blueprint/security/advisories/new
 ```
 
-（把 `<owner>/<repo>` 替换为本仓库实际路径；也可用仓库 Security 页的 "Report a vulnerability"。）
+也可直接用仓库 Security 页的 "Report a vulnerability"。
 
 ## 请提供
 

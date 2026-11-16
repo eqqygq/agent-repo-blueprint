@@ -1,14 +1,14 @@
-# 评审责任人：把 @your-org/... 替换为真实团队 / 账号
+# 评审责任人：个人仓库由 owner @eqqygq 兜底；有团队后按路径替换成 @eqqygq/团队名
 # 全局兜底
-*                  @your-org/engineering-leads
+*                  @eqqygq
 
 # 配置与安全敏感路径
-/.github/           @your-org/platform-team
-/.github/workflows/ @your-org/platform-team
-/security/          @your-org/security-team
-*.lock              @your-org/security-team
-/config/            @your-org/platform-team
+/.github/           @eqqygq
+/.github/workflows/ @eqqygq
+/security/          @eqqygq
+*.lock              @eqqygq
+/config/            @eqqygq
 
 # 文档
-/docs/              @your-org/docs-team
-/README.md          @your-org/docs-team
+/docs/              @eqqygq
+/README.md          @eqqygq
