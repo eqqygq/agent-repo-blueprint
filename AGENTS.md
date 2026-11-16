@@ -8,7 +8,8 @@
 
 - 查得到 → 按仓库里记录的方式执行，不要凭记忆另写一套。
 - 查不到 → 先核实官方资料，把结论补进 `docs/INTEGRATIONS.md`，再继续任务。
-- 智能体接入与大模型兜底的具体做法在 [docs/AGENT-SETUP.md](docs/AGENT-SETUP.md)。
+- **涉及内部资料、历史方案、定稿文档 → 先查 WorkBuddy 资料库 / 文献库（用户标注为日常最常用入口）**；资料库没命中，再回仓库查工具用法。连接失败时如实说明哪些源没检索到。
+- 智能体接入与大模型兜底的具体做法在 [docs/AGENT-SETUP.md](docs/AGENT-SETUP.md)，费用边界在 [docs/COSTS.md](docs/COSTS.md)。
 
 这样仓库本身就是智能体的知识源，换模型、换会话都不会丢上下文。
 
