@@ -68,9 +68,9 @@ PAT 方式（WorkBuddy 等不支持交互式 OAuth 的宿主走这条）：
 
 适用：GitHub 侧连不上、或不想把代码发到云端推理。
 
-1. 安装 [Ollama](https://ollama.com/)（本机目前**未安装**，`C:\Users\YTR\AppData\Local\Programs\Ollama` 目录不存在，PATH 里的条目是残留）。
-2. 启动服务并确认端口：`curl http://127.0.0.1:11434/api/tags`（当前返回连接失败）。
-3. 拉模型：`ollama pull qwen3`（中文与代码场景）或 `ollama pull llama3.1`；显存小用 4B/8B 量化版。
+1. 安装 [Ollama](https://ollama.com/)（本机**已装 0.40.16**，`winget install --id Ollama.Ollama --source winget`，可执行文件 `C:\Users\YTR\AppData\Local\Programs\Ollama\ollama.exe`）。
+2. 启动服务并确认端口：`curl http://127.0.0.1:11434/api/tags`（安装后服务自动启动，已验证）。
+3. 拉模型：已拉 `qwen3:4b`（2.5 GB，中文与代码场景，CPU 可跑）；显存紧张可换 `qwen3:0.6b`。
 4. 让智能体以 `http://127.0.0.1:11434` 为 OpenAI 兼容端点调用；工具侧用 `gh` CLI 执行 GitHub 操作。
 5. 若要「问仓库要文档」，把 `docs/INTEGRATIONS.md` 切成小段做本地检索（RAG），或直接把 `AGENTS.md` 作为系统上下文注入——本项目已按这个约定组织。
 
@@ -81,12 +81,13 @@ PAT 方式（WorkBuddy 等不支持交互式 OAuth 的宿主走这条）：
 | 路径 | 状态 | 需要你提供 / 操作 |
 | --- | --- | --- |
 | A · GitHub MCP | ❌ 未配置 | 完成设备码授权或给一个 `repo` 权限 PAT |
-| A' · gh CLI 直连 | ⚠️ 已装 2.104.0，未登录 | 同上 |
-| B · 本地大模型 | ❌ 未安装 | 安装 Ollama 并拉取模型（约数 GB 下载） |
-| B' · 云端 LLM API | ❌ 未配置 | 选定厂商与 API Key |
-| 本地骨架 | ✅ 已就绪 | 无，可直接开工 |
+| A' · gh CLI 直连 | ⚠️ 已装 2.104.0，未登录（两次设备码超时） | 同上 |
+| B · 本地大模型 | ✅ **已就绪** | Ollama 0.40.16 + `qwen3:4b`，11434 推理已验证，零订阅费 |
+| B' · 云端 LLM API | ❌ 刻意未配置 | 会产生账单，须用户明确选型与 API Key |
+| 本地骨架 + 体检脚本 | ✅ 已就绪 | 无，可直接开工 |
 
 ## 结论
 
-**不阻塞的先做**：本地骨架、文档、CI、模板、集成说明已全部落地，不依赖任何外部账号。
-**真正「连好」只差一步**：GitHub 授权（或 PAT）。授权完成后，MCP 与 `gh` 两条通道同时打通；如果授权方式不可用，就按路径 B 装本地大模型，用「本地 LLM + gh CLI」把智能体跑起来。
+**已落地**：本地骨架、文档、CI、模板、集成说明，以及路径 B 的本地大模型（Ollama + `qwen3:4b`，推理已验证），全程零订阅、零 API 账单。
+**唯一还差的**：GitHub 授权（或 PAT）。两次设备码都因需本人操作而超时；用户回来重新生成一个码即可，MCP 与 `gh` 两条通道会同时打通。
+**授权前也能工作**：本地 LLM 读 `AGENTS.md` / `docs/` 作上下文，通过 `gh` CLI 的匿名能力（公开仓库）或本地 git 完成不依赖账号的任务；涉及私有仓库的操作必须等授权。

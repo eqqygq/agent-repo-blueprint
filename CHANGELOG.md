@@ -18,6 +18,9 @@
 - `.env.example`：环境变量占位样例（云端 LLM 与 GitHub token 均留空）
 - `docs/INTEGRATIONS.md` 与 `AGENTS.md`：把资料库 / 文献库标记为日常最常用入口，明确「内部资料查资料库、工具用法查仓库」的分工
 - README 首段说明、LICENSE 版权人、README 文档地图补齐
+- 本地大模型兜底落地：Ollama 0.40.16 + 开源模型 `qwen3:4b`（2.5 GB），11434 服务与 `/api/chat` 推理验证通过，零订阅 / 零 API 账单
+- 4 份定稿同步进 WorkBuddy 资料库（文献库）：总方案、费用边界、插件与文献库用法、工作布置看板
+- `docs/WORK-PLAN.md` 加入离线期间完成清单与回来后的待办；所有环境状态表更新为本机实际状态
 
 ---
 

@@ -11,7 +11,7 @@
 | GitHub CLI (`gh`) | 命令行建仓、查 Issue/PR、发版 | ✅ 已装 2.104.0，⚠️ 未登录 |
 | GitHub MCP Server | 让智能体直接读写 GitHub | ❌ 未配置，需 PAT |
 | WorkBuddy GitHub 连接器 | 在 WorkBuddy 里用自然语言管仓库 | ❌ 未连接 |
-| Ollama（本地大模型） | 离线推理兜底 | ❌ 未安装 |
+| Ollama（本地大模型） | 离线推理兜底 | ✅ 0.40.16 + `qwen3:4b`，11434 服务可用，推理已验证 |
 | 云端 LLM API | 在线推理 | ❌ 未选型 / 无 Key |
 | VS Code + MCP | 远程 MCP 宿主 | ✅ 已装（需 1.101+ 支持远程 MCP + OAuth） |
 | Git LFS | 大文件版本管理 | ⚠️ 未确认 |
@@ -79,7 +79,8 @@ GH="/c/Program Files/GitHub CLI/gh.exe"
 
 - 官方：https://ollama.com/
 - 安装后：`ollama serve` 启动服务；`ollama pull qwen3` 拉模型；`ollama list` 查看。
-- 健康检查：`curl http://127.0.0.1:11434/api/tags`（本机当前返回连接失败）。
+- 健康检查：`curl http://127.0.0.1:11434/api/tags`（本机 2026-11-17 起已返回模型列表）。
+- 本机现状：`ollama.exe` 位于 `C:\Users\YTR\AppData\Local\Programs\Ollama\ollama.exe`，安装后服务自动启动；已拉 `qwen3:4b`（2.5 GB），`POST /api/chat` 验证返回 `done_reason: stop`。零订阅、零 API 账单。
 - 调用：OpenAI 兼容端点 `http://127.0.0.1:11434/v1`，模型名用 `ollama list` 里的实际名称。
 - 与 MCP 的关系：LLM 是「脑」，MCP 是「手」。没有云端模型时用本地 LLM 驱动智能体，工具侧通过 `gh` CLI 完成 GitHub 操作。
 

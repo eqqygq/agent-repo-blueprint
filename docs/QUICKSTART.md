@@ -26,6 +26,8 @@ GH="/c/Program Files/GitHub CLI/gh.exe"
 
 ## 4. 本地大模型兜底（不依赖 GitHub，免费）
 
+> 本机已装 Ollama 0.40.16 并拉好 `qwen3:4b`，服务已启动，可直接跳到 `ollama run` 那一步。
+
 ```bash
 ollama serve                    # 或安装后由系统服务自动启动
 curl http://127.0.0.1:11434/api/tags

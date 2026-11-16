@@ -46,8 +46,9 @@ GH="/c/Program Files/GitHub CLI/gh.exe"
 
 | 能力 | 状态 | 阻塞点 |
 | --- | --- | --- |
-| 本地 git 仓库 | 已就绪 | — |
-| GitHub CLI | 已安装 2.104.0 | 未登录，需设备码授权或 PAT |
-| GitHub MCP Server | 未配置 | 需要 PAT |
-| 本地大模型（Ollama） | 未安装 / 服务未启动 | 需安装并拉取模型 |
-| 云端大模型 API | 未配置 | 需选型与 API Key |
+| 本地 git 仓库 | ✅ 已就绪（4 次提交，工作区干净） | — |
+| 仓库体检脚本 | ✅ `scripts/verify.sh` 本地与 CI 共用，已通过 | — |
+| GitHub CLI | ⚠️ 已装 2.104.0，**未登录** | 两次设备码（2030-9FDF / 0A77-6039）均 15 分钟超时，需用户本人授权或 PAT |
+| GitHub MCP Server | ⏸ 未配置 | 依赖 GitHub 授权 / PAT |
+| 本地大模型（Ollama） | ✅ 0.40.16 + `qwen3:4b`（2.5 GB），11434 服务可用，推理已验证 | — |
+| 云端大模型 API | ❌ 刻意未配置 | 会产生账单，须用户明确选型与 API Key 后才启用 |
