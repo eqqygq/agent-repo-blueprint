@@ -43,8 +43,9 @@
 
 - **#2 完成**：用户本人注册账号 `eqqygq` 并完成设备码授权，`gh auth status` 显示已登录（keyring），scopes: gist / read:org / repo。全程 0 元。
 - **#3 完成**：按 WorkBuddy 官方 MCP 格式写入 `~/.workbuddy/mcp.json`：`github` = HTTP 端点 `https://api.githubcopilot.com/mcp/` + `Authorization: Bearer <token>`；token 由 `gh auth token` 读取后直接写盘、未进对话/仓库。**用户需在连接器管理页点「信任」后 MCP 工具才加载。**
-- **#5 完成**：仓库推送到 `eqqygq/agent-repo-blueprint`（公开，治理功能全免费），CI 已在 GitHub Actions 侧首次触发。
+- **#5 完成**：仓库推送到 `eqqygq/agent-repo-blueprint`（public）；CI 首次运行 **success**；Secret scanning + Push protection 默认开启（免费）；CI / CodeQL / Dependabot 三条工作流 active。补齐 workflow scope 后推送成功。（推送时首次因缺 workflow scope 被拒，刷新授权 `55F5-AF49` 后解决——GitHub 发出的授权通知邮件属正常记录。）
 - **#6 完成**：`gh api user/repos` 返回 `[]`（0 仓库）→ 账号名下 **0 个开放 Issue**，属实而非权限问题。
+- **#3 补充**：刷新 token 后 mcp.json 已同步更新为新 token。
 
 ## 仍待用户手工确认
 
