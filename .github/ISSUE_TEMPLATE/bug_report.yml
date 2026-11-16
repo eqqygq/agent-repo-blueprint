@@ -1,0 +1,38 @@
+name: 缺陷报告
+description: 报告一个可复现的问题
+title: "[Bug] "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        提交前请先搜索已有 Issue。**安全问题请走私密报告渠道，不要在这里提交。**
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 发生了什么
+      description: 现象与期望行为的差异
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 复现步骤
+      description: "1. … 2. … 3. …"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: 版本 / 环境
+      placeholder: "v0.1.0, Windows 11, Node 22"
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: 日志或截图
+      description: 粘贴前请删除密钥、token 与个人信息
+      render: shell
+    validations:
+      required: false

@@ -1,0 +1,14 @@
+# 评审责任人：把 @your-org/... 替换为真实团队 / 账号
+# 全局兜底
+*                  @your-org/engineering-leads
+
+# 配置与安全敏感路径
+/.github/           @your-org/platform-team
+/.github/workflows/ @your-org/platform-team
+/security/          @your-org/security-team
+*.lock              @your-org/security-team
+/config/            @your-org/platform-team
+
+# 文档
+/docs/              @your-org/docs-team
+/README.md          @your-org/docs-team

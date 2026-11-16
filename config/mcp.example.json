@@ -1,0 +1,20 @@
+{
+  "_comment": "GitHub 官方远程 MCP Server 配置样例（逐字引自 github/github-mcp-server README 的 VS Code PAT 写法）。仅作模板：不含真实凭据，可安全入库。实际使用时把占位符换成 PAT，写入宿主自己的配置文件，文件名用 mcp.local.json（已被 .gitignore 排除）。WorkBuddy 的全局配置位于 ~/.workbuddy/mcp.json，新增后需在连接器管理页点『信任』才会生效。",
+  "servers": {
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer ${input:github_mcp_pat}"
+      }
+    }
+  },
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "github_mcp_pat",
+      "description": "GitHub Personal Access Token",
+      "password": true
+    }
+  ]
+}

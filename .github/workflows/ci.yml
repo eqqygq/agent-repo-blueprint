@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+# 默认最小权限；各 job 按需单独提权
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # TODO: 按实际技术栈替换；第三方 Action 请固定到 commit SHA
+      - name: Lint
+        run: echo "替换为实际 lint 命令"
+
+      - name: Test
+        run: echo "替换为实际 test 命令"
+
+      - name: Build
+        run: echo "替换为实际 build 命令"
+
+  repo-hygiene:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 必备文档存在性检查
+        run: |
+          for f in README.md LICENSE CONTRIBUTING.md SECURITY.md AGENTS.md docs/INTEGRATIONS.md; do
+            test -f "$f" || { echo "缺少必备文件: $f"; exit 1; }
+          done
