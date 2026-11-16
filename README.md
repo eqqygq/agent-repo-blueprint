@@ -1,6 +1,6 @@
-# 仓库名称（待定）
+# GitHub 仓库骨架与智能体知识源（名称待定）
 
-> 一句话说明这个项目做什么、为谁解决什么问题。**建仓第一件事就是把它填好。**
+> 按 GitHub 官方最佳实践搭建的仓库骨架，同时作为 AI 智能体的知识源：工具 / 插件用法、治理策略、费用边界、智能体接入方案和工作看板都沉淀在仓库里，智能体遇事先查仓库，不依赖会话记忆。
 
 ## 当前状态
 
@@ -31,6 +31,8 @@
 | 安全漏洞往哪报 | [SECURITY.md](SECURITY.md) |
 | 版本之间变了什么 | [CHANGELOG.md](CHANGELOG.md) |
 | 哪些免费、哪些要钱 | [docs/COSTS.md](docs/COSTS.md) |
+| 接下来谁做什么、做到哪一步 | [docs/WORK-PLAN.md](docs/WORK-PLAN.md) |
+| 怎么跑起来 | [docs/QUICKSTART.md](docs/QUICKSTART.md) |
 
 > **给 AI 助手**：动手前先读 [AGENTS.md](AGENTS.md)；遇到任何工具或插件的用法问题，先查 `docs/INTEGRATIONS.md`，查不到就补充进去再继续。
 

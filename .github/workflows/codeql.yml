@@ -1,0 +1,27 @@
+# CodeQL 代码扫描。默认手动触发，避免私有仓库在 Free 套餐下自动跑出失败。
+# 公开仓库：可把 on 改为 push/pull_request 自动触发（免费）。
+# 私有仓库：需要 GitHub Code Security 授权，属付费项，启用前须用户确认 —— 见 docs/COSTS.md。
+name: CodeQL
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ["javascript-typescript"] # 按实际技术栈增补：python / java-kotlin / go / c-cpp ...
+    steps:
+      - uses: actions/checkout@v4
+      - uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+      - uses: github/codeql-action/analyze@v3

@@ -15,22 +15,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # TODO: 按实际技术栈替换；第三方 Action 请固定到 commit SHA
-      - name: Lint
-        run: echo "替换为实际 lint 命令"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
 
-      - name: Test
-        run: echo "替换为实际 test 命令"
+      - name: 安装 PyYAML（供 YAML 语法检查）
+        run: python -m pip install --quiet pyyaml
 
-      - name: Build
-        run: echo "替换为实际 build 命令"
+      - name: 仓库体检（本地与 CI 同一套脚本）
+        run: bash scripts/verify.sh
 
-  repo-hygiene:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: 必备文档存在性检查
-        run: |
-          for f in README.md LICENSE CONTRIBUTING.md SECURITY.md AGENTS.md docs/INTEGRATIONS.md; do
-            test -f "$f" || { echo "缺少必备文件: $f"; exit 1; }
-          done
+      # TODO: 技术栈确定后在这里加 lint / test / build，
+      # 并把本 job 设为 ruleset 的必需 status check。
