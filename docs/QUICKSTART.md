@@ -47,5 +47,6 @@ ollama run qwen3:4b "用一句话说明这个仓库是做什么的"
 | --- | --- | --- |
 | `gh api` 提示先登录 | 未授权 | 重新走设备码或给 PAT |
 | `curl 11434` 连接失败 | Ollama 服务没起 | `ollama serve` |
+| 模型没出现在 `ollama list` | `OLLAMA_MODELS` 指向不对 | 确认环境变量为 `D:\Ollama\models` 后重启服务 |
 | 资料库检索结果不全 | 部分源未授权 | 看 `docs/INTEGRATIONS.md`，如实说明不可达源 |
 | CI 红在 `verify.sh` | 缺文件 / YAML 语法错 | 本地跑一遍脚本按 `[FAIL]` 修 |

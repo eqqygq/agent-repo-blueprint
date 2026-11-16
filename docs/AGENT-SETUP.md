@@ -71,6 +71,7 @@ PAT 方式（WorkBuddy 等不支持交互式 OAuth 的宿主走这条）：
 1. 安装 [Ollama](https://ollama.com/)（本机**已装 0.40.16**，`winget install --id Ollama.Ollama --source winget`，可执行文件 `C:\Users\YTR\AppData\Local\Programs\Ollama\ollama.exe`）。
 2. 启动服务并确认端口：`curl http://127.0.0.1:11434/api/tags`（安装后服务自动启动，已验证）。
 3. 拉模型：已拉 `qwen3:4b`（2.5 GB，中文与代码场景，CPU 可跑）；显存紧张可换 `qwen3:0.6b`。
+   - **模型存储位置已迁至 D 盘**：`OLLAMA_MODELS=D:\Ollama\models`（用户级环境变量，2026-11-17 设置）。默认在 `C:\Users\<用户名>\.ollama\models`，C 盘紧张时按此方式迁移：停进程 → `robocopy <旧> <新> /E /MOVE` → 设置 `OLLAMA_MODELS` → 重启服务。
 4. 让智能体以 `http://127.0.0.1:11434` 为 OpenAI 兼容端点调用；工具侧用 `gh` CLI 执行 GitHub 操作。
 5. 若要「问仓库要文档」，把 `docs/INTEGRATIONS.md` 切成小段做本地检索（RAG），或直接把 `AGENTS.md` 作为系统上下文注入——本项目已按这个约定组织。
 

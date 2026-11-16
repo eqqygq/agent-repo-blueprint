@@ -81,6 +81,7 @@ GH="/c/Program Files/GitHub CLI/gh.exe"
 - 安装后：`ollama serve` 启动服务；`ollama pull qwen3` 拉模型；`ollama list` 查看。
 - 健康检查：`curl http://127.0.0.1:11434/api/tags`（本机 2026-11-17 起已返回模型列表）。
 - 本机现状：`ollama.exe` 位于 `C:\Users\YTR\AppData\Local\Programs\Ollama\ollama.exe`，安装后服务自动启动；已拉 `qwen3:4b`（2.5 GB），`POST /api/chat` 验证返回 `done_reason: stop`。零订阅、零 API 账单。
+- 模型存储：`D:\Ollama\models`（`OLLAMA_MODELS` 用户环境变量，2026-11-17 从 C 盘迁出，迁移后推理复验通过）。
 - 调用：OpenAI 兼容端点 `http://127.0.0.1:11434/v1`，模型名用 `ollama list` 里的实际名称。
 - 与 MCP 的关系：LLM 是「脑」，MCP 是「手」。没有云端模型时用本地 LLM 驱动智能体，工具侧通过 `gh` CLI 完成 GitHub 操作。
 
